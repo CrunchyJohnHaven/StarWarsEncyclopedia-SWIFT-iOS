@@ -12,7 +12,7 @@
 		936752DE20601647009C7651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936752DC20601647009C7651 /* Main.storyboard */; };
 		936752E020601647009C7651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936752DF20601647009C7651 /* Assets.xcassets */; };
 		936752E320601647009C7651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936752E120601647009C7651 /* LaunchScreen.storyboard */; };
-		936752EB20601CE5009C7651 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936752EA20601CE5009C7651 /* TableViewController.swift */; };
+		936752ED20605628009C7651 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936752EC20605628009C7651 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		936752DF20601647009C7651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		936752E220601647009C7651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		936752E420601647009C7651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		936752EA20601CE5009C7651 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		936752EC20605628009C7651 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +56,10 @@
 		936752D720601647009C7651 /* Star Wars Encyclopedia */ = {
 			isa = PBXGroup;
 			children = (
-				936752D820601647009C7651 /* AppDelegate.swift */,
-				936752DA20601647009C7651 /* PeopleViewController.swift */,
 				936752DC20601647009C7651 /* Main.storyboard */,
-				936752EA20601CE5009C7651 /* TableViewController.swift */,
+				936752DA20601647009C7651 /* PeopleViewController.swift */,
+				936752EC20605628009C7651 /* MoviesViewController.swift */,
+				936752D820601647009C7651 /* AppDelegate.swift */,
 				936752DF20601647009C7651 /* Assets.xcassets */,
 				936752E120601647009C7651 /* LaunchScreen.storyboard */,
 				936752E420601647009C7651 /* Info.plist */,
@@ -140,8 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				936752DB20601647009C7651 /* PeopleViewController.swift in Sources */,
-				936752EB20601CE5009C7651 /* TableViewController.swift in Sources */,
 				936752D920601647009C7651 /* AppDelegate.swift in Sources */,
+				936752ED20605628009C7651 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
