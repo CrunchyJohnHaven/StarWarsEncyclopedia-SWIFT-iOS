@@ -9,32 +9,40 @@
 import UIKit
 class PeopleViewController: UITableViewController {
     // Hardcoded data for now
-    var people = ["Luke Skywalker", "Leia Organa", "Han Solo", "C-3PO", "R2-D2"]
-    
-    
-    
+    var people: [String] = []
     
     override func viewDidLoad() {
-//        Make an http request code:
         super.viewDidLoad()
-//        specify the url for the request set to let url variable
+        // Specify the url that we will be sending the GET Request to
         let url = URL(string: "http://swapi.co/api/people/")
-//       create the session as an instance of URLSession to handle the request task
+        // Create a URLSession to handle the request tasks
         let session = URLSession.shared
+        // Create a "data task" which will request some data from a URL and then run a completion handler after it is done
         let task = session.dataTask(with: url!, completionHandler: {
             data, response, error in
+            // We get data, response, and error back. Data contains the JSON data, Response contains the headers and other information about the response, and Error contains an error if one occured
+            // A "Do-Try-Catch" block involves a try statement with some catch block for catching any errors thrown by the try statement.
             do {
-               if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                    if let results = jsonResult["results"] {
-                        print(results)
+                // Try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                    if let results = jsonResult["results"] as? NSArray {
+                        for person in results {
+                            // cast to dictionary for data extraction
+                            let personDict = person as! NSDictionary
+                            self.people.append(personDict["name"]! as! String)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             } catch {
-                print(error)
+                print("Something went wrong")
             }
         })
-//        make actual request
+        // Actually "execute" the task. This is the line that actually makes the request that we set up above
         task.resume()
+        print("I happen before the response!")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,3 +64,7 @@ class PeopleViewController: UITableViewController {
         return cell
     }
 }
+
+
+
+
