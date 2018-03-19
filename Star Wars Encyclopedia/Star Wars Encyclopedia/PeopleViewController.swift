@@ -24,7 +24,15 @@ class PeopleViewController: UITableViewController {
                         for person in results {
                             // cast to dictionary for data extraction
                             let personDict = person as! NSDictionary
-                            self.people.append(personDict["name"]! as! String)
+                            let name = personDict["name"]! as! String
+                            let gender = personDict["gender"]! as! String
+                            let birth_year = personDict["birth_year"]! as! String
+                            let mass = personDict["mass"]! as! String
+                            self.people.append("Name: " + name)
+                            self.people.append("Gender: " + gender)
+                            self.people.append("Birth Year: " + birth_year)
+                            self.people.append("Mass: " + mass)
+                            self.people.append("   ")
                         }
                     }
                 }
@@ -51,9 +59,9 @@ class PeopleViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
-        // set the default cell label to the corresponding element in the people array
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.text = people[indexPath.row]
-        // return the cell so that it can be rendered
         return cell
     }
 }

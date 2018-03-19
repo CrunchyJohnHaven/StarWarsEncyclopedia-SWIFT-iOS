@@ -27,6 +27,7 @@ class MoviesViewController: UITableViewController {
                             self.films.append("Released: " + release_date)
                             self.films.append("Directed By: " + director)
                             self.films.append("Opening Crawl: " + opening_crawl)
+                            self.films.append("     ")
 
 
                             
@@ -43,10 +44,6 @@ class MoviesViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    func allowMultipleLines(tableViewCell: UITableViewCell) {
-        tableViewCell.textLabel?.numberOfLines = 0
-        tableViewCell.textLabel?.lineBreakMode = .byWordWrapping
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
