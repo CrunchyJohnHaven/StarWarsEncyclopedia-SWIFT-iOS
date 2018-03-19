@@ -19,7 +19,17 @@ class MoviesViewController: UITableViewController {
                     if let results = jsonResult["results"] as? NSArray {
                         for film in results {
                             let filmDict = film as! NSDictionary
-                            self.films.append(filmDict["title"]! as! String)
+                            let title = filmDict["title"]! as! String
+                            let release_date = filmDict["release_date"]! as! String
+                            let director = filmDict["director"]! as! String
+                            let opening_crawl = filmDict["opening_crawl"]! as! String
+                            self.films.append(title)
+                            self.films.append("Released: " + release_date)
+                            self.films.append("Directed By: " + director)
+                            self.films.append("Opening Crawl: " + opening_crawl)
+
+
+                            
                         }
                     }
                 }
@@ -34,6 +44,10 @@ class MoviesViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    func allowMultipleLines(tableViewCell: UITableViewCell) {
+        tableViewCell.textLabel?.numberOfLines = 0
+        tableViewCell.textLabel?.lineBreakMode = .byWordWrapping
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -42,6 +56,8 @@ class MoviesViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.text = films[indexPath.row]
         return cell
     }

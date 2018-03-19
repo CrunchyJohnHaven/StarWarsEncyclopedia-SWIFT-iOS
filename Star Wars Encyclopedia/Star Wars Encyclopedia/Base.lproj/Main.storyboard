@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="o5d-SV-fqw" id="xg7-lr-CYA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kfF-45-1JX"/>
+                    <navigationItem key="navigationItem" title="Star Wars Characters" id="kfF-45-1JX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt6-bR-xBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="-1444" y="215"/>
         </scene>
-        <!--Movies View Controller-->
+        <!--Star Wars Films-->
         <scene sceneID="jcb-gm-VT9">
             <objects>
                 <tableViewController id="2Vk-Sm-klb" customClass="MoviesViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="2Vk-Sm-klb" id="3eX-yh-qjA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="c9N-mv-oSM"/>
+                    <navigationItem key="navigationItem" title="Star Wars Films" id="c9N-mv-oSM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IsF-ty-BYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
