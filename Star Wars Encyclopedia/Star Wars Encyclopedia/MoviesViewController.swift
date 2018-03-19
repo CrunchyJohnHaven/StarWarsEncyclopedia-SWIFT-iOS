@@ -12,29 +12,24 @@ class MoviesViewController: UITableViewController {
     var films: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "http://swapi.co/api/films")
-        let session  = URLSession.shared
-        let task = session.dataTask(with: url!, completionHandler: {
-            
-            data, response, error in
+        StarWarsModel.getAllFilms(completionHandler: {data, response, error in
             do {
-                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options:
+                    JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                     if let results = jsonResult["results"] as? NSArray {
                         for film in results {
                             let filmDict = film as! NSDictionary
                             self.films.append(filmDict["title"]! as! String)
                         }
                     }
-                    print("#1")
-                    DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             } catch {
-                print("Error")
+                print("something wrong")
             }
         })
-        task.resume()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +41,7 @@ class MoviesViewController: UITableViewController {
         return films.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         cell.textLabel?.text = films[indexPath.row]
         return cell
     }

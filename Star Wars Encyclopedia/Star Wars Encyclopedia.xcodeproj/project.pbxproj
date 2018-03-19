@@ -13,6 +13,7 @@
 		936752E020601647009C7651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936752DF20601647009C7651 /* Assets.xcassets */; };
 		936752E320601647009C7651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936752E120601647009C7651 /* LaunchScreen.storyboard */; };
 		936752ED20605628009C7651 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936752EC20605628009C7651 /* MoviesViewController.swift */; };
+		936752EF20606E67009C7651 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936752EE20606E67009C7651 /* StarWarsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		936752E220601647009C7651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		936752E420601647009C7651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936752EC20605628009C7651 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		936752EE20606E67009C7651 /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		936752CC20601647009C7651 = {
 			isa = PBXGroup;
 			children = (
+				936752EE20606E67009C7651 /* StarWarsModel.swift */,
 				936752D720601647009C7651 /* Star Wars Encyclopedia */,
 				936752D620601647009C7651 /* Products */,
 			);
@@ -141,6 +144,7 @@
 			files = (
 				936752DB20601647009C7651 /* PeopleViewController.swift in Sources */,
 				936752D920601647009C7651 /* AppDelegate.swift in Sources */,
+				936752EF20606E67009C7651 /* StarWarsModel.swift in Sources */,
 				936752ED20605628009C7651 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

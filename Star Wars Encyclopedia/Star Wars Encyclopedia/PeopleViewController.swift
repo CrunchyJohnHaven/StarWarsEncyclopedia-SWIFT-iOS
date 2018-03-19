@@ -13,12 +13,7 @@ class PeopleViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Specify the url that we will be sending the GET Request to
-        let url = URL(string: "http://swapi.co/api/people/")
-        // Create a URLSession to handle the request tasks
-        let session = URLSession.shared
-        // Create a "data task" which will request some data from a URL and then run a completion handler after it is done
-        let task = session.dataTask(with: url!, completionHandler: {
+        StarWarsModel.getAllPeople(completionHandler: {
             data, response, error in
             // We get data, response, and error back. Data contains the JSON data, Response contains the headers and other information about the response, and Error contains an error if one occured
             // A "Do-Try-Catch" block involves a try statement with some catch block for catching any errors thrown by the try statement.
@@ -32,17 +27,15 @@ class PeopleViewController: UITableViewController {
                             self.people.append(personDict["name"]! as! String)
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             } catch {
                 print("Something went wrong")
             }
         })
         // Actually "execute" the task. This is the line that actually makes the request that we set up above
-        task.resume()
-        print("I happen before the response!")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,7 +50,7 @@ class PeopleViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
         // set the default cell label to the corresponding element in the people array
         cell.textLabel?.text = people[indexPath.row]
         // return the cell so that it can be rendered
